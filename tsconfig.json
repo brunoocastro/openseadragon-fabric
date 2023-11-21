@@ -1,18 +1,17 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true,
     "module": "commonjs",
     "rootDir": "./src",
-    "outDir": "./dist",
+    "outDir": "./lib",
+    "moduleResolution": "Node",
     "removeComments": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "openseadragon-fabric.d.ts"],
   "exclude": ["node_modules"]
 }
