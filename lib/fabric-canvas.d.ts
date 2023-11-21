@@ -18,5 +18,5 @@ export declare class FabricOverlay {
     render(): void;
     resize(): void;
     resizeCanvas(): void;
-    constructor(viewer: Viewer, { staticCanvas, fabricCanvasOptions }: FabricOverlayConfig);
+    constructor(viewer: Viewer, { staticCanvas, fabricCanvasOptions, }: FabricOverlayConfig, id: number);
 }

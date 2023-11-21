@@ -1,11 +1,11 @@
 {
   "name": "openseadragon-fabric",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A OpenSeaDragon plugin to use FabricJS",
   "main": "lib/openseadragon-fabric.js",
   "types": "lib/openseadragon-fabric.d.ts",
   "scripts": {
-    "clear": "rm -rf ./lib && mkdir lib && cp openseadragon-fabric.d.ts ./lib/openseadragon-fabric.d.ts",
+    "clear": "rm -rf ./lib && mkdir lib",
     "build": "npm run clear && tsc --declaration",
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/openseadragon-fabric.ts"
   },

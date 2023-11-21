@@ -1,9 +1,7 @@
-import { randomUUID } from "crypto";
 import { fabric } from "fabric";
 import OpenSeadragon, { Point, Viewer } from "openseadragon";
 
 export interface FabricOverlayConfig {
-  // scale?: number;
   staticCanvas: boolean;
   fabricCanvasOptions: fabric.ICanvasOptions | fabric.IStaticCanvasOptions;
 }
@@ -85,7 +83,11 @@ export class FabricOverlay {
 
   constructor(
     viewer: Viewer,
-    { staticCanvas, fabricCanvasOptions }: FabricOverlayConfig
+    {
+      staticCanvas = true,
+      fabricCanvasOptions = { selection: false },
+    }: FabricOverlayConfig,
+    id: number
   ) {
     let self = this;
 
@@ -104,7 +106,7 @@ export class FabricOverlay {
 
     this._canvas = document.createElement("canvas");
 
-    this._id = "osd-overlaycanvas-" + randomUUID();
+    this._id = "osd-canvas-" + id;
     this._canvas.setAttribute("id", this._id);
     this._canvasDiv.appendChild(this._canvas);
     this.resize();
