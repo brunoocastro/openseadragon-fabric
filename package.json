@@ -1,7 +1,7 @@
 {
   "name": "openseadragon-fabric",
-  "version": "1.0.0",
-  "description": "A open sea dragon plugin to use FabricJS",
+  "version": "1.0.2",
+  "description": "A OpenSeaDragon plugin to use FabricJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

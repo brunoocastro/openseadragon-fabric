@@ -16,7 +16,7 @@ declare module "openseadragon" {
   }
 }
 
-function initFabricJSOverlay() {
+function initOSDFabricJS() {
   if (!OpenSeadragon) {
     console.error("[openseadragon-canvas-overlay] requires OpenSeadragon");
     return;
@@ -40,4 +40,4 @@ function initFabricJSOverlay() {
   };
 }
 
-module.exports = initFabricJSOverlay;
+module.exports = { initOSDFabricJS };
