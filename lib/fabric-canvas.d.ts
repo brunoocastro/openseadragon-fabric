@@ -1,8 +1,7 @@
-import { fabric } from 'fabric';
-import { Viewer } from 'openseadragon';
+import { fabric } from "fabric";
+import { Viewer } from "openseadragon";
 export interface FabricOverlayConfig {
-    staticCanvas: boolean;
-    fabricCanvasOptions: fabric.ICanvasOptions | fabric.IStaticCanvasOptions;
+    fabricCanvasOptions: fabric.ICanvasOptions;
 }
 export declare class FabricOverlay {
     private _viewer;
@@ -13,10 +12,11 @@ export declare class FabricOverlay {
     private _containerHeight;
     private _canvasDiv;
     canvas(): HTMLCanvasElement;
-    fabricCanvas(): fabric.StaticCanvas | fabric.Canvas;
-    clear(): void;
-    render(): void;
-    resize(): void;
+    fabricCanvas(): fabric.Canvas;
+    clearFabric(): void;
+    renderAllFabric(): void;
     resizeCanvas(): void;
-    constructor(viewer: Viewer, { staticCanvas, fabricCanvasOptions, }: FabricOverlayConfig, id: number);
+    resizeFabric(): void;
+    clearFabricSelection(): void;
+    constructor(viewer: Viewer, { fabricCanvasOptions }: FabricOverlayConfig, id: number);
 }

@@ -44,4 +44,5 @@ function initOSDFabricJS() {
   };
 }
 
-export { initOSDFabricJS };
+export { FabricOverlay, FabricOverlayConfig, initOSDFabricJS };
+

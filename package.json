@@ -1,7 +1,7 @@
 {
   "name": "openseadragon-fabric",
-  "version": "1.0.5",
-  "description": "A OpenSeaDragon plugin to use FabricJS",
+  "version": "1.0.6",
+  "description": "A OpenSeaDragon plugin to allow the use of FabricJS overlay",
   "main": "lib/openseadragon-fabric.js",
   "types": "lib/openseadragon-fabric.d.ts",
   "scripts": {
@@ -18,7 +18,8 @@
     "osd",
     "plugin",
     "fabric",
-    "fabricjs"
+    "fabricjs",
+    "overlay"
   ],
   "author": "Bruno Castro",
   "license": "ISC",

@@ -13,4 +13,4 @@ declare module 'fabric' {
     }
 }
 declare function initOSDFabricJS(): void;
-export { initOSDFabricJS };
+export { FabricOverlay, FabricOverlayConfig, initOSDFabricJS };
