@@ -1,5 +1,5 @@
-import { fabric } from "fabric";
-import { Viewer } from "openseadragon";
+import { fabric } from 'fabric';
+import { Viewer } from 'openseadragon';
 export interface FabricOverlayConfig {
     staticCanvas: boolean;
     fabricCanvasOptions: fabric.ICanvasOptions | fabric.IStaticCanvasOptions;

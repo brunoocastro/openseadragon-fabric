@@ -1,16 +1,11 @@
-import { fabric } from "fabric";
-import OpenSeadragon, { Point, Viewer } from "openseadragon";
+import { fabric } from 'fabric';
+import OpenSeadragon, { Point, Viewer } from 'openseadragon';
 
 export interface FabricOverlayConfig {
   staticCanvas: boolean;
   fabricCanvasOptions: fabric.ICanvasOptions | fabric.IStaticCanvasOptions;
 }
 
-/**
- * Overlay object
- * @param viewer
- * @constructor
- */
 export class FabricOverlay {
   private _viewer: Viewer;
   private _canvas: HTMLCanvasElement;
@@ -21,34 +16,29 @@ export class FabricOverlay {
   private _containerHeight: number;
   private _canvasDiv: HTMLDivElement;
 
-  // private _scale: number = 1000; // !TODO -> Validar de onde vem esse dado
-
   canvas(): HTMLCanvasElement {
     return this._canvas;
   }
   fabricCanvas(): fabric.StaticCanvas | fabric.Canvas {
-    // Returns fabric.js canvas that you can add elements to
     return this._fabricCanvas;
   }
-  // ----------
   clear(): void {
     this._fabricCanvas.clear();
   }
   render(): void {
     this._fabricCanvas.renderAll();
   }
-  // ----------
   resize(): void {
     if (this._containerWidth !== this._viewer.container.clientWidth) {
       this._containerWidth = this._viewer.container.clientWidth;
-      this._canvasDiv.setAttribute("width", String(this._containerWidth));
-      this._canvas.setAttribute("width", String(this._containerWidth));
+      this._canvasDiv.setAttribute('width', String(this._containerWidth));
+      this._canvas.setAttribute('width', String(this._containerWidth));
     }
 
     if (this._containerHeight !== this._viewer.container.clientHeight) {
       this._containerHeight = this._viewer.container.clientHeight;
-      this._canvasDiv.setAttribute("height", String(this._containerHeight));
-      this._canvas.setAttribute("height", String(this._containerHeight));
+      this._canvasDiv.setAttribute('height', String(this._containerHeight));
+      this._canvas.setAttribute('height', String(this._containerHeight));
     }
   }
   resizeCanvas(): void {
@@ -60,7 +50,7 @@ export class FabricOverlay {
     this._fabricCanvas.setHeight(this._containerHeight);
 
     /** Original package way of syncing OSD zoom to Fabric zoom */
-    //this._fabricCanvas.setZoom(viewportZoom);
+    this._fabricCanvas.setZoom(viewportZoom);
 
     /** Alternative way of syncing OSD zoom to Fabric zoom, which keeps horizontal window resizing in sync */
     this._fabricCanvas.setZoom(viewportToImageZoom);
@@ -96,18 +86,18 @@ export class FabricOverlay {
     this._containerWidth = 0;
     this._containerHeight = 0;
 
-    this._canvasDiv = document.createElement("div");
-    this._canvasDiv.style.position = "absolute";
-    this._canvasDiv.style.left = "0px";
-    this._canvasDiv.style.top = "0px";
-    this._canvasDiv.style.width = "100%";
-    this._canvasDiv.style.height = "100%";
+    this._canvasDiv = document.createElement('div');
+    this._canvasDiv.style.position = 'absolute';
+    this._canvasDiv.style.left = '0px';
+    this._canvasDiv.style.top = '0px';
+    this._canvasDiv.style.width = '100%';
+    this._canvasDiv.style.height = '100%';
     this._viewer.canvas.appendChild(this._canvasDiv);
 
-    this._canvas = document.createElement("canvas");
+    this._canvas = document.createElement('canvas');
 
-    this._id = "osd-canvas-" + id;
-    this._canvas.setAttribute("id", this._id);
+    this._id = 'osd-canvas-' + id;
+    this._canvas.setAttribute('id', this._id);
     this._canvasDiv.appendChild(this._canvas);
     this.resize();
 
@@ -121,15 +111,11 @@ export class FabricOverlay {
       this._fabricCanvas = new fabric.Canvas(this._canvas, fabricCanvasOptions);
     }
 
-    // Disable fabric selection because default click is tracked by OSD
-    // this._fabricCanvas.selection = false;
-
     /**
      * Prevent OSD mousedown on fabric objects
      */
-    this._fabricCanvas.on("mouse:down", function (options) {
+    this._fabricCanvas.on('mouse:down', function (options) {
       if (options.target) {
-        // options.e.preventDefaultAction = true;
         options.e.preventDefault();
         options.e.stopPropagation();
       }
@@ -138,9 +124,8 @@ export class FabricOverlay {
     /**
      * Prevent OSD mouseup on fabric objects
      */
-    this._fabricCanvas.on("mouse:up", function (options) {
+    this._fabricCanvas.on('mouse:up', function (options) {
       if (options.target) {
-        // options.e.preventDefaultAction = true;
         options.e.preventDefault();
         options.e.stopPropagation();
       }
@@ -149,7 +134,7 @@ export class FabricOverlay {
     /**
      * Update viewport
      */
-    this._viewer.addHandler("update-viewport", function () {
+    this._viewer.addHandler('update-viewport', function () {
       self.resize();
       self.resizeCanvas();
       self.render();
@@ -158,11 +143,11 @@ export class FabricOverlay {
     /**
      * Resize the fabric.js overlay when the viewer or window changes size
      */
-    this._viewer.addHandler("open", function () {
+    this._viewer.addHandler('open', function () {
       self.resize();
       self.resizeCanvas();
     });
-    window.addEventListener("resize", function () {
+    window.addEventListener('resize', function () {
       self.resize();
       self.resizeCanvas();
     });

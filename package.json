@@ -1,6 +1,6 @@
 {
   "name": "openseadragon-fabric",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A OpenSeaDragon plugin to use FabricJS",
   "main": "lib/openseadragon-fabric.js",
   "types": "lib/openseadragon-fabric.d.ts",
