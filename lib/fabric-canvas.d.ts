@@ -11,6 +11,7 @@ export declare class FabricOverlay {
     private _containerWidth;
     private _containerHeight;
     private _canvasDiv;
+    viewer(): Viewer;
     canvas(): HTMLCanvasElement;
     fabricCanvas(): fabric.Canvas;
     clearFabric(): void;
@@ -18,5 +19,7 @@ export declare class FabricOverlay {
     resizeCanvas(): void;
     resizeFabric(): void;
     clearFabricSelection(): void;
+    setViewerMouseNavEnabled(state?: boolean): void;
+    updateCanvasRotation(deg: number): void;
     constructor(viewer: Viewer, { fabricCanvasOptions }: FabricOverlayConfig, id: number);
 }

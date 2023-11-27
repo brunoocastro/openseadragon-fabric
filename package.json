@@ -1,6 +1,6 @@
 {
   "name": "openseadragon-fabric",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A OpenSeaDragon plugin to allow the use of FabricJS overlay",
   "main": "lib/openseadragon-fabric.js",
   "types": "lib/openseadragon-fabric.d.ts",

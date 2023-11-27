@@ -15,6 +15,9 @@ export class FabricOverlay {
   private _containerHeight: number;
   private _canvasDiv: HTMLDivElement;
 
+  viewer(): Viewer {
+    return this._viewer;
+  }
   canvas(): HTMLCanvasElement {
     return this._canvas;
   }
@@ -69,6 +72,7 @@ export class FabricOverlay {
       )
     );
   }
+
   clearFabricSelection(): void {
     if (this._fabricCanvas.isDrawingMode) {
       // If in free drawing mode, clear the free drawing selection
@@ -79,6 +83,16 @@ export class FabricOverlay {
       this._fabricCanvas.discardActiveObject();
     }
     this._fabricCanvas.requestRenderAll();
+  }
+
+  setViewerMouseNavEnabled(state = true): void {
+    if (!this._viewer) return;
+    this._viewer.setMouseNavEnabled(state);
+  }
+
+  updateCanvasRotation(deg: number): void {
+    if (deg < 0 || deg > 360) return;
+    this._viewer.world.getItemAt(0).setRotation(deg, true);
   }
 
   constructor(
