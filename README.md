@@ -64,7 +64,6 @@ const fabricOverlay = newViewer.fabricOverlay({
 
 //Needs to be set to false to disable default mouse navigation in OSD.
 newViewer.setMouseNavEnabled(false);
-newViewer.outerTracker.setTracking(false);
 
 fabricOverlay.fabricCanvas().freeDrawingBrush = new fabric.PencilBrush(fabricOverlay.fabricCanvas());
 fabricOverlay.fabricCanvas().freeDrawingBrush.width = 15;
