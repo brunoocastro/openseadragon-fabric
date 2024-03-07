@@ -27,12 +27,14 @@
     "url": "https://github.com/brunoocastro/openseadragon-fabric/issues"
   },
   "homepage": "https://github.com/brunoocastro/openseadragon-fabric#readme",
+  "dependencies": {
+    "fabric": "^5.3.0",
+    "openseadragon": "^4.1.0"
+  },
   "devDependencies": {
+    "@types/openseadragon": "^3.0.10",
     "@types/fabric": "^5.3.6",
     "@types/node": "^20.9.2",
-    "@types/openseadragon": "^3.0.10",
-    "fabric": "^5.3.0",
-    "openseadragon": "^4.1.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.2"
   }
