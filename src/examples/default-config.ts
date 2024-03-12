@@ -1,6 +1,7 @@
 import { fabric } from "fabric";
 import OpenSeadragon from "openseadragon";
 import { initOSDFabricJS } from "../openseadragon-fabric";
+
 const tileSource = new OpenSeadragon.TileSource({
   tileOverlap: 2,
   tileSize: 256,
@@ -25,4 +26,4 @@ function initializePlugin() {
   fabricCanvas.add(new fabric.Circle({ radius: 100, fill: "red" }));
 }
 
-export { initializePlugin };
+module.exports = initializePlugin;

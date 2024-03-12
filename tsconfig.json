@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "module": "ES6",
     "target": "ESNext",
-    "module": "commonjs",
+    "noImplicitAny": true,
     "rootDir": "./src",
-    "outDir": "./lib",
+    "outDir": "./dist",
     "moduleResolution": "Node",
     "removeComments": true,
     "esModuleInterop": true,

@@ -1,0 +1,11 @@
+/*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
+
+//! Built on 2023-05-25
+
+//! Git commit: v4.1.0-0-8849681
+
+//! License: http://openseadragon.github.io/license/
+
+//! http://openseadragon.github.io
+
+//! openseadragon 4.1.0
