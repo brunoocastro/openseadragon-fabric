@@ -1,14 +1,14 @@
-import { fabric } from "fabric";
+import { Canvas, CanvasOptions, TOptions, Point as FabricPoint } from "fabric";
 import OpenSeadragon, { Point, Viewer } from "openseadragon";
 
 export interface FabricOverlayConfig {
-  fabricCanvasOptions: fabric.ICanvasOptions;
+  fabricCanvasOptions: TOptions<CanvasOptions>;
 }
 
 export class FabricOverlay {
   private _viewer: Viewer;
   private _canvas: HTMLCanvasElement;
-  private _fabricCanvas: fabric.Canvas;
+  private _fabricCanvas: Canvas;
 
   private _id: string;
   private _containerWidth: number;
@@ -21,7 +21,7 @@ export class FabricOverlay {
   canvas(): HTMLCanvasElement {
     return this._canvas;
   }
-  fabricCanvas(): fabric.Canvas {
+  fabricCanvas(): Canvas {
     return this._fabricCanvas;
   }
   clearFabric(): void {
@@ -66,7 +66,7 @@ export class FabricOverlay {
     let pageScroll = OpenSeadragon.getPageScroll();
 
     this._fabricCanvas.absolutePan(
-      new fabric.Point(
+      new FabricPoint(
         canvasOffset.left - x + pageScroll.x,
         canvasOffset.top - y + pageScroll.y
       )
@@ -122,7 +122,7 @@ export class FabricOverlay {
     this._canvasDiv.appendChild(this._canvas);
     this.resizeCanvas();
 
-    this._fabricCanvas = new fabric.Canvas(this._canvas, fabricCanvasOptions);
+    this._fabricCanvas = new Canvas(this._canvas, fabricCanvasOptions);
 
     /**
      * Prevent OSD mousedown on fabric objects
