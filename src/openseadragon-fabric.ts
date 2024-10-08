@@ -1,7 +1,6 @@
-import { fabric } from 'fabric';
 import OpenSeadragon from 'openseadragon';
 import { FabricOverlay, FabricOverlayConfig } from './fabric-canvas';
-
+import { FabricObject, Canvas } from 'fabric';
 declare module 'openseadragon' {
   interface Viewer {
     fabricOverlay: (props: FabricOverlayConfig) => FabricOverlay;
@@ -10,10 +9,10 @@ declare module 'openseadragon' {
 
 declare module 'fabric' {
   interface StaticCanvas {
-    setActiveObject: (object: fabric.Object) => void;
+    setActiveObject: (object: FabricObject) => void;
   }
   interface Canvas {
-    setActiveObject: (object: fabric.Object) => void;
+    setActiveObject: (object: FabricObject) => boolean;
   }
 }
 
@@ -22,8 +21,9 @@ function initOSDFabricJS() {
     console.error('[openseadragon-canvas-overlay] requires OpenSeadragon');
     return;
   }
-  if (!fabric) {
+  if (!Canvas) {
     console.error('[fabric-js] requires FabricJS');
+    console.error('Please import FabricJS before importing this package');
     return;
   }
 

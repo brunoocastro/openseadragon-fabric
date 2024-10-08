@@ -1,4 +1,5 @@
 import { FabricOverlay, FabricOverlayConfig } from './fabric-canvas';
+import { FabricObject } from 'fabric';
 declare module 'openseadragon' {
     interface Viewer {
         fabricOverlay: (props: FabricOverlayConfig) => FabricOverlay;
@@ -6,10 +7,10 @@ declare module 'openseadragon' {
 }
 declare module 'fabric' {
     interface StaticCanvas {
-        setActiveObject: (object: fabric.Object) => void;
+        setActiveObject: (object: FabricObject) => void;
     }
     interface Canvas {
-        setActiveObject: (object: fabric.Object) => void;
+        setActiveObject: (object: FabricObject) => boolean;
     }
 }
 declare function initOSDFabricJS(): void;
