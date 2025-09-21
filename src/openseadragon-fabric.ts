@@ -1,6 +1,11 @@
 import OpenSeadragon from 'openseadragon';
 import { FabricOverlay, FabricOverlayConfig } from './fabric-canvas';
-import { FabricObject, Canvas } from 'fabric';
+import {
+  FabricObject,
+  Canvas,
+  TPointerEvent,
+  StaticCanvasEvents,
+} from 'fabric';
 declare module 'openseadragon' {
   interface Viewer {
     fabricOverlay: (props: FabricOverlayConfig) => FabricOverlay;
@@ -8,11 +13,13 @@ declare module 'openseadragon' {
 }
 
 declare module 'fabric' {
-  interface StaticCanvas {
-    setActiveObject: (object: FabricObject) => void;
+  interface StaticCanvas<
+    EventSpec extends StaticCanvasEvents = StaticCanvasEvents
+  > {
+    setActiveObject(object: FabricObject, e?: TPointerEvent): boolean;
   }
-  interface Canvas {
-    setActiveObject: (object: FabricObject) => boolean;
+  interface Canvas<EventSpec = any> {
+    setActiveObject(object: FabricObject, e?: TPointerEvent): boolean;
   }
 }
 
